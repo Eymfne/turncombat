@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn-Based Combat Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="background">
+        <div id="game-container">
+            <div id="settings-button">
+                <button onclick="openSettings()">Settings</button>
+            </div>
+            <div id="player-ui">
+                <img src="path/to/player-image.png" alt="Player" class="character-image" id="player-image">
+                <div id="player-stats">
+                    <h2>Player</h2>
+                    <div class="bar-container">
+                        <div id="player-hp-bar" class="hp-bar"></div>
+                    </div>
+                    <div class="bar-container">
+                        <div id="player-fp-bar" class="fp-bar"></div>
+                    </div>
+                    <p id="player-status">Status: Normal</p>
+                    <button onclick="openInventory()">Open Inventory</button>
+                    <button onclick="openShop()">Open Shop</button>
+                </div>
+            </div>
+            <div id="combat-log"></div>
+            <div id="enemy-ui">
+                <img src="path/to/enemy-image.png" alt="Enemy" class="character-image" id="enemy-image">
+                <div id="enemy-stats">
+                    <h2>Enemy</h2>
+                    <div class="bar-container">
+                        <div id="enemy-hp-bar" class="hp-bar"></div>
+                    </div>
+                    <div class="bar-container">
+                        <div id="enemy-fp-bar" class="fp-bar"></div>
+                    </div>
+                    <p id="enemy-status">Status: Normal</p>
+                </div>
+            </div>
+            <div id="actions">
+                <button onclick="useSkill('attack')">Attack</button>
+                <button onclick="useSkill('special')">Special Skill</button>
+                <button onclick="recoverFP()">Recover FP</button>
+                <button onclick="useItem()">Use Item</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="inventory-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeInventory()">&times;</span>
+            <h2>Inventory</h2>
+            <div id="inventory-items"></div>
+            <button onclick="levelUp()">Level Up</button>
+        </div>
+    </div>
+
+    <div id="shop-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShop()">&times;</span>
+            <h2>Shop</h2>
+            <div id="shop-items"></div>
+        </div>
+    </div>
+
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSettings()">&times;</span>
+            <h2>Settings</h2>
+            <div>
+                <label for="background-image-input">Background Image:</label>
+                <input type="file" id="background-image-input" accept="image/*" onchange="changeBackgroundImage(event)">
+            </div>
+            <div>
+                <label for="player-image-input">Player Image:</label>
+                <input type="file" id="player-image-input" accept="image/*" onchange="changePlayerImage(event)">
+            </div>
+            <div>
+                <label for="enemy-image-input">Enemy Image:</label>
+                <input type="file" id="enemy-image-input" accept="image/*" onchange="changeEnemyImage(event)">
+            </div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
